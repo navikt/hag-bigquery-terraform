@@ -5,6 +5,9 @@ terraform {
             version = "4.55.0"
         }
     }
+    backend "gcs" {
+        bucket = "hag-bigquery-terraform-state-dev"
+    }
 }
 
 provider "google" {
