@@ -1,23 +1,23 @@
 name: "Terraform"
 on:
-    push:
+  push:
     branches:
-        - main
+      - main
 
 env:
-    DEV_DIR: './dev'
+  DEV_DIR: './dev'
 
 jobs:
-    terraform-plan-dev:
+  terraform-plan-dev:
     name: "terraform plan gcp-dev"
     runs-on: ubuntu-latest
     concurrency: terraform-plan-dev
     defaults:
-        run:
+      run:
         working-directory: ${{ env.DEV_DIR }}
 
     env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GCP_SECRET_DEV }}
+      GOOGLE_CREDENTIALS: ${{ secrets.GCP_SECRET_DEV }}
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v3
@@ -37,17 +37,17 @@ jobs:
       - name: Run 'terraform plan'
         run: terraform plan
 
-    terraform-apply-dev:
+  terraform-apply-dev:
     needs: terraform-plan-dev
     name: "terraform apply gcp-dev"
     runs-on: ubuntu-latest
     concurrency: terraform-plan-dev, terraform-apply-dev
     defaults:
-        run:
+      run:
         working-directory: ${{ env.DEV_DIR }}
 
     env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GCP_SECRET_DEV }}
+      GOOGLE_CREDENTIALS: ${{ secrets.GCP_SECRET_DEV }}
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v3
