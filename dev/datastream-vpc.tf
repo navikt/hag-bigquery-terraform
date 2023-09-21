@@ -23,6 +23,6 @@ resource "google_datastream_private_connection" "hag_datastream_private_connecti
 
   vpc_peering_config {
     vpc    = google_compute_network.hag_datastream_private_vpc.id
-    subnet = "172.24.48.0/29"
+    subnet = "10.166.0.0/29"
   }
 }
