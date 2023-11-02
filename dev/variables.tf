@@ -7,3 +7,9 @@ variable "gcp_project" {
     project = "helsearbeidsgiver-dev-6d06"
   }
 }
+
+variable "bro_db_cloud_sql_port" {
+  description = "The port exposed by the helsearbeidsgiver-bro-sykepenger database Cloud SQL instance."
+  type        = string
+  default     = "5432"
+}
