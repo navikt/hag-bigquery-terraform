@@ -14,7 +14,3 @@ variable "bro_db_cloud_sql_port" {
   default     = "5432"
 }
 
-variable "bro_datastream_user_secret" {
-  description = "The key of the GCP secret that provides the helsearbeidsgiver-bro-sykepenger database credentials."
-  type        = string
-}

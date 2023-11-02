@@ -89,6 +89,7 @@ resource "google_compute_instance" "hag_datastream_cloud_sql_proxy_vm" {
 
   network_interface {
     network = google_compute_network.hag_datastream_private_vpc.name
+    access_config {}
   }
 
   service_account {
