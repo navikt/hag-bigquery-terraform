@@ -5,6 +5,7 @@ terraform {
       version = "4.55.0"
     }
   }
+  // For å lagre terraform state i google cloud storage
   backend "gcs" {
     bucket = "hag-bigquery-terraform-state-dev"
   }
