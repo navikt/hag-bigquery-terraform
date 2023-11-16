@@ -26,7 +26,7 @@ resource "google_datastream_connection_profile" "bro_postgresql_connection_profi
     port     = var.bro_db_cloud_sql_port
     username = local.bro_db_credentials["username"]
     password = local.bro_db_credentials["password"]
-    database = data.google_sql_database_instance.bro_db.name
+    database = "helsearbeidsgiver-bro-sykepenger"
   }
 
   private_connectivity {
@@ -74,7 +74,7 @@ resource "google_datastream_stream" "bro_datastream" {
     destination_connection_profile = google_datastream_connection_profile.datastream_bigquery_connection_profile.id
 
     bigquery_destination_config {
-      data_freshness = "300s"
+      data_freshness = "900s"
 
       single_target_dataset {
         dataset_id = "${var.gcp_project["project"]}:${google_bigquery_dataset.bro_dataset.dataset_id}"
