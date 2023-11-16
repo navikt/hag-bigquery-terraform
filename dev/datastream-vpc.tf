@@ -27,7 +27,6 @@ resource "google_datastream_private_connection" "hag_datastream_private_connecti
   }
 }
 
-
 // VPC Firewall rules control incoming or outgoing traffic to an instance. By default, incoming traffic from outside
 // your network is blocked. Since we are using a Cloud SQL reverse proxy, we need to then create an ingress firewall
 // rule that allows traffic on the source database port.
