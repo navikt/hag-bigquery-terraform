@@ -13,3 +13,16 @@ resource "google_compute_global_address" "hag_datastream_vpc_ip_range" {
   network       = google_compute_network.hag_datastream_private_vpc.id
   prefix_length = 20
 }
+
+// Private connectivity lets you create a peered configuration between your VPC and Datastream’s private network.
+// A single configuration can be used by all streams and connection profiles within a single region.
+resource "google_datastream_private_connection" "hag_datastream_private_connection" {
+  location              = var.gcp_project["region"]
+  display_name          = "hag-datastream-private-connection"
+  private_connection_id = "hag-datastream-private-connection"
+
+  vpc_peering_config {
+    vpc    = google_compute_network.hag_datastream_private_vpc.id
+    subnet = "10.1.0.0/29"
+  }
+}
