@@ -107,4 +107,11 @@ resource "google_compute_instance" "hag_datastream_cloud_sql_proxy_vm" {
   }
 }
 
+// Datastream connection profile for BigQuery target. Can be used by multiple streams.
+resource "google_datastream_connection_profile" "datastream_bigquery_connection_profile" {
+  display_name          = "datastream-bigquery-connection-profile"
+  location              = var.gcp_project["region"]
+  connection_profile_id = "datastream-bigquery-connection-profile"
 
+  bigquery_profile {}
+}
