@@ -14,3 +14,9 @@ variable "bro_db_cloud_sql_port" {
   default     = "5432"
 }
 
+variable "spinosaurus_db_cloud_sql_port" {
+  description = "The port exposed by the spinosaurus database Cloud SQL instance."
+  type        = string
+  default     = "5433"
+}
+
