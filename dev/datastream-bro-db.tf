@@ -59,6 +59,10 @@ resource "google_datastream_stream" "bro_datastream" {
           postgresql_tables {
             table = "flyway_schema_history"
           }
+
+          postgresql_tables {
+            table = "bakgrunnsjobb"
+          }
         }
       }
 
