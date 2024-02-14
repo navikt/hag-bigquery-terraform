@@ -59,6 +59,56 @@ resource "google_datastream_stream" "spinosaurus_datastream" {
           postgresql_tables {
             table = "flyway_schema_history"
           }
+
+          postgresql_tables {
+            table = "bakgrunnsjobb"
+          }
+
+          postgresql_tables {
+            table = "arbeidsgiverperiode"
+          }
+
+          postgresql_tables {
+            table = "feilet"
+          }
+
+          postgresql_tables {
+            table = "inntektsmelding"
+            postgresql_columns {
+              column = "aktor_id"
+            }
+            postgresql_columns {
+              column = "sak_id"
+            }
+            postgresql_columns {
+              column = "arbeidsgiver_privat"
+            }
+          }
+
+          postgresql_tables {
+            table = "utsatt_oppgave"
+            postgresql_columns {
+              column = "oppgave_id"
+            }
+            postgresql_columns {
+              column = "fnr"
+            }
+            postgresql_columns {
+              column = "aktor_id"
+            }
+            postgresql_columns {
+              column = "sak_id"
+            }
+            postgresql_columns {
+              column = "enhet"
+            }
+            postgresql_columns {
+              column = "gosys_oppgave_id"
+            }
+            postgresql_columns {
+              column = "gosys_oppgave_id"
+            }
+          }
         }
       }
 
