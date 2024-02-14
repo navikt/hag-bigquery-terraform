@@ -70,7 +70,7 @@ resource "google_datastream_stream" "bro_datastream" {
         }
       }
     }
-  }
+
 
   destination_config {
     destination_connection_profile = google_datastream_connection_profile.datastream_bigquery_connection_profile.id
