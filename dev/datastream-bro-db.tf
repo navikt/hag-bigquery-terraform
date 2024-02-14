@@ -62,11 +62,11 @@ resource "google_datastream_stream" "bro_datastream" {
 
         }
       }
-    }
 
-    include_objects {
-      postgresql_schemas {
-        schema = "public"
+      include_objects {
+        postgresql_schemas {
+          schema = "public"
+        }
       }
     }
   }
