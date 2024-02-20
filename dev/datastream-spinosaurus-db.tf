@@ -88,9 +88,6 @@ resource "google_datastream_stream" "spinosaurus_datastream" {
           postgresql_tables {
             table = "utsatt_oppgave"
             postgresql_columns {
-              column = "oppgave_id"
-            }
-            postgresql_columns {
               column = "fnr"
             }
             postgresql_columns {
