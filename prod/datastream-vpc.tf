@@ -39,21 +39,26 @@ resource "google_compute_firewall" "allow_datastream_to_cloud_sql" {
   allow {
     protocol = "tcp"
     ports = [
-      var.bro_db_cloud_sql_port
+      var.bro_db_cloud_sql_port,
+      var.spinosaurus_db_cloud_sql_port
     ]
   }
 
   source_ranges = [google_datastream_private_connection.hag_datastream_private_connection.vpc_peering_config.0.subnet]
 }
 
-
 data "google_sql_database_instance" "bro_db" {
   name = "helsearbeidsgiver-bro-sykepenger"
+}
+
+data "google_sql_database_instance" "spinosaurus_db" {
+  name = "spinosaurus"
 }
 
 locals {
   proxy_instances = [
     "${data.google_sql_database_instance.bro_db.connection_name}=tcp:0.0.0.0:${var.bro_db_cloud_sql_port}",
+    "${data.google_sql_database_instance.spinosaurus_db.connection_name}=tcp:0.0.0.0:${var.spinosaurus_db_cloud_sql_port}",
   ]
 }
 
