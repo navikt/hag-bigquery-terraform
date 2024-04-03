@@ -20,3 +20,9 @@ variable "spinosaurus_db_cloud_sql_port" {
   default     = "5433"
 }
 
+variable "simba_db_cloud_sql_port" {
+  description = "The port exposed by the im-db (simba) database Cloud SQL instance."
+  type        = string
+  default     = "5434"
+}
+
