@@ -40,7 +40,8 @@ resource "google_compute_firewall" "allow_datastream_to_cloud_sql" {
     protocol = "tcp"
     ports = [
       var.bro_db_cloud_sql_port,
-      var.spinosaurus_db_cloud_sql_port
+      var.spinosaurus_db_cloud_sql_port,
+      var.simba_db_cloud_sql_port
     ]
   }
 
@@ -55,10 +56,15 @@ data "google_sql_database_instance" "spinosaurus_db" {
   name = "spinosaurus"
 }
 
+data "google_sql_database_instance" "simba_db" {
+  name = "im-db"
+}
+
 locals {
   proxy_instances = [
     "${data.google_sql_database_instance.bro_db.connection_name}=tcp:0.0.0.0:${var.bro_db_cloud_sql_port}",
     "${data.google_sql_database_instance.spinosaurus_db.connection_name}=tcp:0.0.0.0:${var.spinosaurus_db_cloud_sql_port}",
+    "${data.google_sql_database_instance.simba_db.connection_name}=tcp:0.0.0.0:${var.simba_db_cloud_sql_port}",
   ]
 }
 
