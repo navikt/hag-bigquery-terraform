@@ -26,7 +26,7 @@ resource "google_datastream_connection_profile" "simba_postgresql_connection_pro
     port     = var.simba_db_cloud_sql_port
     username = local.simba_db_credentials["username"]
     password = local.simba_db_credentials["password"]
-    database = "im-db"
+    database = "inntektsmelding"
   }
 
   private_connectivity {
