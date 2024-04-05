@@ -19,3 +19,12 @@ variable "spinosaurus_db_cloud_sql_port" {
   type        = string
   default     = "5433"
 }
+
+variable "flytt_spinosaurus_service_user" {
+  description = "The service account used by the flytt-spinosaurus Cloud Function."
+  type        = string
+}
+
+locals {
+  flytt_spinosaurus_service_user = "serviceAccount:${var.flytt_spinosaurus_service_user}"
+}
