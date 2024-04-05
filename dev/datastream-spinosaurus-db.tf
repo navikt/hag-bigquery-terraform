@@ -133,7 +133,7 @@ resource "google_datastream_stream" "spinosaurus_datastream" {
 resource "google_bigquery_table_iam_binding" "inntektsmelding_view_iam_binding" {
   project    = var.gcp_project.project
   dataset_id = google_bigquery_dataset.spinosaurus_dataset.dataset_id
-  table_id   = "${google_bigquery_dataset.spinosaurus_dataset.dataset_id}.public_inntektsmelding"
+  table_id   = "${var.gcp_project}.${google_bigquery_dataset.spinosaurus_dataset.dataset_id}.public_inntektsmelding"
   role       = "roles/bigquery.dataViewer"
   members    = [var.flytt_spinosaurus_service_user]
 }
@@ -141,7 +141,7 @@ resource "google_bigquery_table_iam_binding" "inntektsmelding_view_iam_binding" 
 resource "google_bigquery_table_iam_binding" "utsatt_oppgave_view_iam_binding" {
   project    = var.gcp_project.project
   dataset_id = google_bigquery_dataset.spinosaurus_dataset.dataset_id
-  table_id   = "${google_bigquery_dataset.spinosaurus_dataset.dataset_id}.public_utsatt_oppgave"
+  table_id   = "${var.gcp_project}.${google_bigquery_dataset.spinosaurus_dataset.dataset_id}.public_utsatt_oppgave"
   role       = "roles/bigquery.dataViewer"
   members    = [var.flytt_spinosaurus_service_user]
 }
