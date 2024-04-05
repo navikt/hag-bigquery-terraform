@@ -26,3 +26,9 @@ variable "simba_db_cloud_sql_port" {
   default     = "5434"
 }
 
+variable "flytt_spinosaurus_service_user" {
+  description = "The service account used by the flytt-spinosaurus Cloud Function."
+  type        = string
+  default     = "serviceAccount:flytt-spino-helsearbei-obdpr4q@nais-dev-2e7b.iam.gserviceaccount.com"
+}
+
