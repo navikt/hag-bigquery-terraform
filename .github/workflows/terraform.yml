@@ -19,6 +19,7 @@ jobs:
 
     env:
       GOOGLE_CREDENTIALS: ${{ secrets.GCP_SECRET_DEV }}
+      TF_VAR_flytt_spinosaurus_service_user: ${{ secrets.DEV_FLYTT_SPINOSAURUS_SA }}
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v3
@@ -78,6 +79,7 @@ jobs:
 
     env:
       GOOGLE_CREDENTIALS: ${{ secrets.GCP_SECRET_DEV }}
+      TF_VAR_flytt_spinosaurus_service_user: ${{ secrets.DEV_FLYTT_SPINOSAURUS_SA }}
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v3
