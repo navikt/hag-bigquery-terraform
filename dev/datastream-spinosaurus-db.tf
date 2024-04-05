@@ -143,5 +143,5 @@ resource "google_bigquery_table_iam_binding" "utsatt_oppgave_view_iam_binding" {
   dataset_id = google_bigquery_dataset.spinosaurus_dataset.dataset_id
   table_id   = "public_utsatt_oppgave"
   role       = "roles/bigquery.dataViewer"
-  members    = [var.flytt_spinosaurus_service_user]
+  members    = [local.flytt_spinosaurus_service_user]
 }
