@@ -23,6 +23,8 @@ resource "google_bigquery_dataset" "spinosaurus_dataset" {
   }
 }
 
+#todo legg til nada service account som data viewer og metadataviewer på datasettet
+
 resource "google_datastream_connection_profile" "spinosaurus_postgresql_connection_profile" {
   location              = var.gcp_project["region"]
   display_name          = "spinosaurus-postgresql-connection-profile"
