@@ -15,20 +15,6 @@ resource "google_bigquery_dataset" "bro_dataset" {
     special_group = "projectWriters"
   }
   access {
-    view {
-      dataset_id = "simba_dataprodukter"
-      project_id = var.gcp_project["project"]
-      table_id   = "forespoersel_svartid"
-    }
-  }
-  access {
-    view {
-      dataset_id = "simba_dataprodukter"
-      project_id = var.gcp_project["project"]
-      table_id   = "forespoersler"
-    }
-  }
-  access {
     dataset {
       dataset {
         dataset_id = "simba_dataprodukter"
