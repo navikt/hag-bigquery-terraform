@@ -28,6 +28,13 @@ resource "google_bigquery_dataset" "bro_dataset" {
       table_id   = "forespoersler"
     }
   }
+  access {
+    dataset {
+      dataset_id   = "simba_dataprodukter"
+      project_id   = var.gcp_project["project"]
+      target_types = ["VIEWS"]
+    }
+  }
 }
 
 resource "google_datastream_connection_profile" "bro_postgresql_connection_profile" {
