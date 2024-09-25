@@ -30,8 +30,10 @@ resource "google_bigquery_dataset" "bro_dataset" {
   }
   access {
     dataset {
-      dataset_id   = "simba_dataprodukter"
-      project_id   = var.gcp_project["project"]
+      dataset {
+        dataset_id = "simba_dataprodukter"
+        project_id = var.gcp_project["project"]
+      }
       target_types = ["VIEWS"]
     }
   }
