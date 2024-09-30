@@ -72,7 +72,7 @@ locals {
 // The module itself does not launch an instance or managed instance group.
 module "cloud_sql_auth_proxy_container_datastream" {
   source         = "terraform-google-modules/container-vm/google"
-  version        = "3.1.0"
+  version        = "3.1.1"
   cos_image_name = "cos-stable-101-17162-127-8"
   container = {
     image   = "eu.gcr.io/cloudsql-docker/gce-proxy:1.33.2"
