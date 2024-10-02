@@ -79,7 +79,6 @@ module "cloud_sql_auth_proxy_container_datastream" {
     command = ["/cloud_sql_proxy"]
     args = [
       "-instances=${join(",", local.proxy_instances)}",
-      "-ip_address_types=PRIVATE"
     ]
   }
   restart_policy = "Always"
@@ -87,10 +86,11 @@ module "cloud_sql_auth_proxy_container_datastream" {
 
 // Create a VM used to host the Cloud SQL reverse proxy.
 resource "google_compute_instance" "hag_datastream_cloud_sql_proxy_vm" {
-  name         = "hag-datastream-cloud-sql-proxy-vm"
-  machine_type = "e2-micro"
-  project      = var.gcp_project["project"]
-  zone         = var.gcp_project["zone"]
+  name                      = "hag-datastream-cloud-sql-proxy-vm"
+  machine_type              = "e2-micro"
+  project                   = var.gcp_project["project"]
+  zone                      = var.gcp_project["zone"]
+  allow_stopping_for_update = true
 
   boot_disk {
     initialize_params {
