@@ -19,3 +19,44 @@ module "bro_datastream" {
   datastream_id                       = "bro-datastream"
   dataset_id                          = "bro_dataset"
 }
+
+module "spinosaurus_datastream" {
+  source                              = "../modules/google-bigquery-datastream"
+  gcp_project                         = var.gcp_project
+  application_name                    = "spinosaurus"
+  cloud_sql_instance_name             = "spinosaurus"
+  cloud_sql_instance_db_name          = "spinosaurus"
+  cloud_sql_instance_db_credentials   = local.spinosaurus_db_credentials
+  datastream_vpc_resources            = local.datastream_vpc_resources
+  cloud_sql_instance_replication_name = "spinosaurus_replication"
+  cloud_sql_instance_publication_name = "spinosaurus_publication"
+  datastream_id                       = "spinosaurus-datastream"
+  dataset_id                          = "spinosaurus_dataset"
+  postgresql_exclude_schemas = [
+    {
+      schema = "public"
+      tables = [
+        {
+          table = "flyway_schema_history"
+        },
+        {
+          table = "bakgrunnsjobb"
+        },
+        {
+          table = "arbeidsgiverperiode"
+        },
+        {
+          table = "feilet"
+        },
+        {
+          table   = "inntektsmelding",
+          columns = ["aktor_id", "sak_id", "arbeidsgiver_privat"]
+        },
+        {
+          table   = "utsatt_oppgave",
+          columns = ["fnr", "aktor_id", "sak_id", "enhet", "gosys_oppgave_id"]
+        }
+      ]
+    }
+  ]
+}
