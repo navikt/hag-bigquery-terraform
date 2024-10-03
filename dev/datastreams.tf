@@ -26,7 +26,7 @@ module "simba_datastream" {
   application_name                    = "im-db"
   cloud_sql_instance_name             = "im-db"
   cloud_sql_instance_db_name          = "inntektsmelding"
-  cloud_sql_instance_db_credentials   = local.bro_db_credentials
+  cloud_sql_instance_db_credentials   = local.simba_db_credentials
   datastream_vpc_resources            = local.datastream_vpc_resources
   cloud_sql_instance_replication_name = "simba_replication"
   cloud_sql_instance_publication_name = "simba_publication"
