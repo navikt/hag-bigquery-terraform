@@ -52,7 +52,6 @@ variable "datastream_id" {
 variable "dataset_id" {
   description = "The ID of the BigQuery dataset to create."
   type        = string
-  default     = local.dataset_id
 }
 
 variable "application_name" {
