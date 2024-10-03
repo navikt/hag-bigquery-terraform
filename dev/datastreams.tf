@@ -20,6 +20,20 @@ module "bro_datastream" {
   dataset_id                          = "bro_dataset"
 }
 
+module "simba_datastream" {
+  source                              = "../modules/google-bigquery-datastream"
+  gcp_project                         = var.gcp_project
+  application_name                    = "im-db"
+  cloud_sql_instance_name             = "im-db"
+  cloud_sql_instance_db_name          = "inntektsmelding"
+  cloud_sql_instance_db_credentials   = local.bro_db_credentials
+  datastream_vpc_resources            = local.datastream_vpc_resources
+  cloud_sql_instance_replication_name = "simba_replication"
+  cloud_sql_instance_publication_name = "simba_publication"
+  datastream_id                       = "simba-datastream"
+  dataset_id                          = "simba_dataset"
+}
+
 module "spinosaurus_datastream" {
   source                              = "../modules/google-bigquery-datastream"
   gcp_project                         = var.gcp_project
