@@ -27,6 +27,19 @@ resource "google_bigquery_dataset" "datastream_dataset" {
     }
   }
 
+  dynamic "access" {
+    for_each = var.authorized_datasets
+    content {
+      dataset {
+        dataset {
+          dataset_id = access.value.dataset.dataset_id
+          project_id = access.value.dataset.project_id
+        }
+        target_types = ["VIEWS"]
+      }
+    }
+  }
+
   timeouts {}
 }
 

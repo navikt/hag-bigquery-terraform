@@ -18,6 +18,11 @@ module "bro_datastream" {
   cloud_sql_instance_publication_name = "bro_publication"
   datastream_id                       = "bro-datastream"
   dataset_id                          = "bro_dataset"
+  authorized_datasets = [
+    {
+      dataset_id = "simba_dataprodukter"
+      project_id = var.gcp_project["project"]
+  }]
 }
 
 module "simba_datastream" {

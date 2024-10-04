@@ -44,9 +44,9 @@ variable "datastream_vpc_resources" {
 }
 
 variable "datastream_id" {
-    description = "The ID of the Datastream to create."
-    type        = string
-    default     = "datastream"
+  description = "The ID of the Datastream to create."
+  type        = string
+  default     = "datastream"
 }
 
 variable "dataset_id" {
@@ -151,6 +151,17 @@ variable "authorized_views" {
       dataset_id = string
       project_id = string
       table_id   = string
+    })
+  }))
+  default = []
+}
+
+variable "authorized_datasets" {
+  description = "Datasets with with views that can access data in the dataset created by the Datastream."
+  type = list(object({
+    dataset = object({
+      dataset_id = string
+      project_id = string
     })
   }))
   default = []
