@@ -20,8 +20,10 @@ module "bro_datastream" {
   dataset_id                          = "bro_dataset"
   authorized_datasets = [
     {
-      dataset_id = "simba_dataprodukter"
-      project_id = var.gcp_project["project"]
+      dataset = {
+        dataset_id = "simba_dataprodukter"
+        project_id = var.gcp_project["project"]
+      }
   }]
 }
 
