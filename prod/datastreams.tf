@@ -6,6 +6,27 @@ locals {
   }
 }
 
+module "bro_datastream" {
+  source                              = "../modules/google-bigquery-datastream"
+  gcp_project                         = var.gcp_project
+  application_name                    = "helsearbeidsgiver-bro-sykepenger"
+  cloud_sql_instance_name             = "helsearbeidsgiver-bro-sykepenger"
+  cloud_sql_instance_db_name          = "helsearbeidsgiver-bro-sykepenger"
+  cloud_sql_instance_db_credentials   = local.bro_db_credentials
+  datastream_vpc_resources            = local.datastream_vpc_resources
+  cloud_sql_instance_replication_name = "bro_replication"
+  cloud_sql_instance_publication_name = "bro_publication"
+  datastream_id                       = "bro-datastream"
+  dataset_id                          = "bro_dataset"
+  authorized_datasets = [
+    {
+      dataset = {
+        dataset_id = "simba_dataprodukter"
+        project_id = var.gcp_project["project"]
+      }
+  }]
+}
+
 module "simba_datastream" {
   source                              = "../modules/google-bigquery-datastream"
   gcp_project                         = var.gcp_project
