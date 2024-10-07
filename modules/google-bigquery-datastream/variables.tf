@@ -94,7 +94,7 @@ variable "cloud_sql_instance_replication_name" {
 variable "bigquery_table_freshness" {
   description = "The maximum time it takes for streamed data to be available in BigQuery. Shorter time increases cost."
   type        = string
-  default     = "3600s"
+  default     = "600s"
 }
 
 variable "cloud_sql_proxy_vm_name" {
