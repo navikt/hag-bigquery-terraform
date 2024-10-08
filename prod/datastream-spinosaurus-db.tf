@@ -28,6 +28,14 @@ resource "google_bigquery_dataset" "spinosaurus_dataset" {
       table_id   = "inntektsmeldinger_med_oppgave_tilstand_v2"
     }
   }
+
+  access {
+    view {
+      dataset_id = "spinn_dataset"
+      project_id = var.gcp_project["project"]
+      table_id   = "inntektsmelding_v1"
+    }
+  }
 }
 
 resource "google_datastream_connection_profile" "spinosaurus_postgresql_connection_profile" {
