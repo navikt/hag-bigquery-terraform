@@ -47,6 +47,13 @@ module "simba_datastream" {
         table_id   = "forespoersel_svartid"
       }
   }]
+  authorized_datasets = [
+    {
+      dataset = {
+        dataset_id = "simba_dataprodukter"
+        project_id = var.gcp_project["project"]
+      }
+    }]
 }
 
 module "spinosaurus_datastream" {
@@ -111,6 +118,13 @@ module "spinosaurus_datastream" {
       }
     }
   ]
+  authorized_datasets = [
+    {
+      dataset = {
+        dataset_id = "simba_dataprodukter"
+        project_id = var.gcp_project["project"]
+      }
+    }]
 }
 
 
