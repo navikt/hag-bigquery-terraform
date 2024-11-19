@@ -53,7 +53,7 @@ module "simba_datastream" {
         dataset_id = "simba_dataprodukter"
         project_id = var.gcp_project["project"]
       }
-    }]
+  }]
 }
 
 module "spinosaurus_datastream" {
@@ -124,7 +124,7 @@ module "spinosaurus_datastream" {
         dataset_id = "simba_dataprodukter"
         project_id = var.gcp_project["project"]
       }
-    }]
+  }]
 }
 
 
