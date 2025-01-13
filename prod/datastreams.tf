@@ -116,6 +116,13 @@ module "spinosaurus_datastream" {
         project_id = var.gcp_project["project"]
         table_id   = "inntektsmelding_v1"
       }
+    },
+    {
+      view = {
+        dataset_id = "spinn_dataset"
+        project_id = var.gcp_project["project"]
+        table_id   = "begrunnelseredusert_alle_avsendere"
+      }
     }
   ]
   authorized_datasets = [
