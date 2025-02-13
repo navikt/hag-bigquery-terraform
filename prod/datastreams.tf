@@ -123,6 +123,13 @@ module "spinosaurus_datastream" {
         project_id = var.gcp_project["project"]
         table_id   = "begrunnelseredusert_alle_avsendere"
       }
+    },
+    {
+      view = {
+        dataset_id = "spinn_dataset"
+        project_id = var.gcp_project["project"]
+        table_id   = "begrunnelseredusert_agp_lengde"
+      }
     }
   ]
   authorized_datasets = [
