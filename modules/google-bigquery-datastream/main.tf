@@ -194,6 +194,16 @@ resource "google_datastream_stream" "datastream" {
       single_target_dataset {
         dataset_id = "${var.gcp_project["project"]}:${google_bigquery_dataset.datastream_dataset.dataset_id}"
       }
+
+      dynamic "append_only" {
+        for_each = var.append_only ? [1] : []
+        content {}
+      }
+
+      dynamic "merge" {
+        for_each = var.append_only ? [] : [1]
+        content {}
+      }
     }
   }
 }

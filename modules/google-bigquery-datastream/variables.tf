@@ -190,3 +190,9 @@ variable "postgresql_exclude_schemas" {
   }))
   default = [{ schema = "public", tables = [{ table = "flyway_schema_history" }] }]
 }
+
+variable "append_only" {
+  description = "Defines write mode of data written to bigquery"
+  type        = bool
+  default     = false
+}
