@@ -80,4 +80,5 @@ module "spinosaurus_datastream" {
       ]
     }
   ]
+  append_only = true
 }
