@@ -39,7 +39,7 @@ module "simba_datastream" {
   cloud_sql_instance_publication_name = "simba_publication"
   datastream_id                       = "simba-datastream"
   dataset_id                          = "simba_dataset"
-  append_only = true
+  append_only                         = true
 }
 
 module "spinosaurus_datastream" {
