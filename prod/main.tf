@@ -2,7 +2,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 3.53.0, < 7.0.0"
+      version = ">= 6.31.0, < 7.0.0"
     }
   }
   // For å lagre terraform state i google cloud storage
