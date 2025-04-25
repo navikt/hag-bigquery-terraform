@@ -54,6 +54,7 @@ module "simba_datastream" {
         project_id = var.gcp_project["project"]
       }
   }]
+  append_only = true
 }
 
 module "spinosaurus_datastream" {
