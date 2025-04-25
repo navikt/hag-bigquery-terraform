@@ -18,6 +18,20 @@ module "bro_datastream" {
   cloud_sql_instance_publication_name = "bro_publication"
   datastream_id                       = "bro-datastream"
   dataset_id                          = "bro_dataset"
+  postgresql_exclude_schemas = [
+    {
+      schema = "public"
+      tables = [
+        {
+          table = "flyway_schema_history"
+        },
+        {
+          table   = "forespoersel",
+          columns = ["fnr"]
+        }
+      ]
+    }
+  ]
   authorized_datasets = [
     {
       dataset = {
