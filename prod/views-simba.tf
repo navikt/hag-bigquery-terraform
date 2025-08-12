@@ -96,7 +96,7 @@ module "simba_selvbestemt_inntektsmelding_view" {
   source              = "../modules/google-bigquery-view"
   deletion_protection = false
   dataset_id          = "simba_dataset"
-  view_id             = "public_inntektsmelding_view"
+  view_id             = "public_selvbestemt_inntektsmelding_view"
   view_schema = jsonencode(
     [
       {
