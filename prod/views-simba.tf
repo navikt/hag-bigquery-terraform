@@ -42,10 +42,6 @@ module "simba_inntektsmelding_view" {
         type = "STRING"
       },
       {
-        name = "inntektsmelding"
-        type = "JSON"
-      },
-      {
         name = "datastream_metadata"
         type = "RECORD"
         fields = [
@@ -71,6 +67,10 @@ module "simba_inntektsmelding_view" {
             mode = "REPEATED"
           }
         ]
+      },
+      {
+        name = "inntektsmelding"
+        type = "JSON"
       },
       {
         name = "row_num"
