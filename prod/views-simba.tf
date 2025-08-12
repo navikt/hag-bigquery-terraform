@@ -82,7 +82,17 @@ module "simba_inntektsmelding_view" {
 SELECT *
 FROM (
   SELECT
-    *,
+    id,
+    dokument,
+    forespoersel_id,
+    journalpost_id,
+    innsendt,
+    ekstern_inntektsmelding,
+    skjema,
+    inntektsmelding_id,
+    avsender_navn,
+    datastream_metadata,
+    inntektsmelding,
     ROW_NUMBER() OVER (
       PARTITION BY id
       ORDER BY datastream_metadata.source_timestamp DESC
