@@ -82,3 +82,17 @@ module "spinosaurus_datastream" {
     }
   ]
 }
+
+module "lps_api_datastream" {
+  source                              = "../modules/google-bigquery-datastream"
+  gcp_project                         = var.gcp_project
+  application_name                    = "sykepenger-im-lps-api"
+  cloud_sql_instance_name             = "sykepenger-im-lps-api"
+  cloud_sql_instance_db_name          = "hag-lps"
+  cloud_sql_instance_db_credentials   = local.lps_api_db_credentials
+  datastream_vpc_resources            = local.datastream_vpc_resources
+  cloud_sql_instance_replication_name = "lps_api_replication"
+  cloud_sql_instance_publication_name = "lps_api_publication"
+  datastream_id                       = "lps-api-datastream"
+  dataset_id                          = "lps_api_dataset"
+}

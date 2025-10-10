@@ -7,6 +7,9 @@ data "google_secret_manager_secret_version" "spinosaurus_datastream_user_secret"
 data "google_secret_manager_secret_version" "simba_datastream_user_secret" {
   secret = "simba_datastream_user_secret"
 }
+data "google_secret_manager_secret_version" "lps_api_datastream_user_secret" {
+  secret = "lps_api_datastream_user_secret"
+}
 
 locals {
   bro_db_credentials = jsondecode(
@@ -17,5 +20,8 @@ locals {
   )
   simba_db_credentials = jsondecode(
     data.google_secret_manager_secret_version.simba_datastream_user_secret.secret_data
+  )
+  lps_api_db_credentials = jsondecode(
+    data.google_secret_manager_secret_version.lps_api_datastream_user_secret.secret_data
   )
 }
