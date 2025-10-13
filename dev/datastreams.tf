@@ -95,4 +95,36 @@ module "lps_api_datastream" {
   cloud_sql_instance_publication_name = "lps_api_publication"
   datastream_id                       = "lps-api-datastream"
   dataset_id                          = "lps_api_dataset"
+  postgresql_exclude_schemas = [
+    {
+      schema = "public"
+      tables = [
+        {
+          table = "flyway_schema_history"
+        },
+        {
+          table = "bakgrunnsjobb"
+        },
+        {
+          table = "mottak"
+        },
+        {
+          table   = "sykmelding",
+          columns = ["fnr", "arbeidsgiver_sykmelding", "sykmeldt_navn"]
+        },
+        {
+          table   = "soknad",
+          columns = ["fnr", "soknad"]
+        },
+        {
+          table   = "forespoersel",
+          columns = ["fnr", "dokument"]
+        },
+        {
+          table   = "inntektsmelding",
+          columns = ["fnr", "dokument", "skjema"]
+        }
+      ]
+    }
+  ]
 }
