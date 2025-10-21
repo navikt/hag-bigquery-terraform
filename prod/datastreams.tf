@@ -168,6 +168,13 @@ module "lps_api_datastream" {
   cloud_sql_instance_publication_name = "lps_api_publication"
   datastream_id                       = "lps-api-datastream"
   dataset_id                          = "lps_api_dataset"
+  authorized_datasets = [
+    {
+      dataset = {
+        dataset_id = "lps_api_grafana_views"
+        project_id = var.gcp_project["project"]
+      }
+  }]
   postgresql_exclude_schemas = [
     {
       schema = "public"
