@@ -81,6 +81,13 @@ module "spinosaurus_datastream" {
       ]
     }
   ]
+  authorized_datasets = [
+    {
+      dataset = {
+        dataset_id = "lps_api_grafana_views"
+        project_id = var.gcp_project["project"]
+      }
+  }]
 }
 
 module "lps_api_datastream" {

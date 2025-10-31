@@ -153,6 +153,12 @@ module "spinosaurus_datastream" {
         dataset_id = "simba_dataprodukter"
         project_id = var.gcp_project["project"]
       }
+    },
+    {
+      dataset = {
+        dataset_id = "lps_api_grafana_views"
+        project_id = var.gcp_project["project"]
+      }
   }]
 }
 
