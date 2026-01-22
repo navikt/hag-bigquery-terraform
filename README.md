@@ -2,7 +2,7 @@
 
 Terraform-scripts for å opprette BigQuery-datasett og tabeller for HAG.
 
-Basert på [bomlo-bigquery-terraform](https://github.com/navikt/bomlo-bigquery-terraform)
+Basert på [bomlo-bigquery-terraform](https://github.com/navikt/bomlo-bigquery-terraform) og flex sitt repo flex-bigquery-terraform
 
 ## Hvordan kjøre Terraform lokalt
 
