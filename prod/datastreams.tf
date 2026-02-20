@@ -38,7 +38,11 @@ module "bro_datastream" {
         dataset_id = "simba_dataprodukter"
         project_id = var.gcp_project["project"]
       }
-  }]
+      }, {
+      dataset = {
+        dataset_id = "soda_dataset"
+        project_id = var.gcp_project["project"]
+  } }]
 }
 
 module "simba_datastream" {
@@ -180,7 +184,11 @@ module "lps_api_datastream" {
         dataset_id = "lps_api_grafana_views"
         project_id = var.gcp_project["project"]
       }
-  }]
+      }, {
+      dataset = {
+        dataset_id = "soda_dataset"
+        project_id = var.gcp_project["project"]
+  } }]
   postgresql_exclude_schemas = [
     {
       schema = "public"
