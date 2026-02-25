@@ -188,6 +188,10 @@ module "lps_api_datastream" {
       dataset = {
         dataset_id = "soda_dataset"
         project_id = var.gcp_project["project"]
+      } }, {
+      dataset = {
+        dataset_id = "lps_api_dataprodukter"
+        project_id = var.gcp_project["project"]
   } }]
   postgresql_exclude_schemas = [
     {
