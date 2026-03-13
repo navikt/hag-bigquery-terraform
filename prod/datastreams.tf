@@ -109,7 +109,7 @@ module "spinosaurus_datastream" {
         },
         {
           table   = "utsatt_oppgave",
-          columns = ["fnr", "aktor_id", "sak_id", "enhet", "gosys_oppgave_id"]
+          columns = ["fnr", "aktor_id", "sak_id", "enhet"]
         }
       ]
     }
