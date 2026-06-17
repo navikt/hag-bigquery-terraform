@@ -160,6 +160,12 @@ module "spinosaurus_datastream" {
     },
     {
       dataset = {
+        dataset_id = "spinn_dataset"
+        project_id = var.gcp_project["project"]
+      }
+    },
+    {
+      dataset = {
         dataset_id = "lps_api_grafana_views"
         project_id = var.gcp_project["project"]
       }
@@ -168,7 +174,7 @@ module "spinosaurus_datastream" {
       dataset = {
         dataset_id = "helseytelser_data_deling"
         project_id = var.gcp_project["project"]
-      }
+      },
   }]
 }
 
