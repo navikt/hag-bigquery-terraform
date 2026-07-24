@@ -17,6 +17,7 @@ variable "view_id" {
 variable "view_schema" {
   description = "The view schema."
   type        = string
+  default     = null
 }
 
 variable "view_query" {

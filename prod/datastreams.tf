@@ -43,6 +43,7 @@ module "bro_datastream" {
         dataset_id = "soda_dataset"
         project_id = var.gcp_project["project"]
   } }]
+  append_only = true
 }
 
 module "simba_datastream" {
