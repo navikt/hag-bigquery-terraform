@@ -30,7 +30,7 @@ module "bro_datastream" {
         project_id = var.gcp_project["project"]
       }
   }]
-  append_only                         = true
+  append_only = true
 }
 
 module "simba_datastream" {
