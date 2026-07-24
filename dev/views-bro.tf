@@ -3,6 +3,7 @@ module "bro_forespoersel_view" {
   deletion_protection = false
   dataset_id          = "bro_dataset"
   view_id             = "public_forespoersel_view"
+  depends_on          = [module.bro_datastream]
   view_query          = <<EOF
 SELECT *
 FROM (
@@ -26,6 +27,7 @@ module "bro_besvarelse_metadata_view" {
   deletion_protection = false
   dataset_id          = "bro_dataset"
   view_id             = "public_besvarelse_metadata_view"
+  depends_on          = [module.bro_datastream]
   view_query          = <<EOF
 SELECT *
 FROM (
