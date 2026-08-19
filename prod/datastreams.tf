@@ -233,7 +233,7 @@ module "lps_api_datastream" {
         },
         {
           table   = "inntektsmelding",
-          columns = ["fnr", "dokument", "skjema"]
+          columns = ["skjema"]
         }
       ]
     }
