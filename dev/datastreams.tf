@@ -137,10 +137,6 @@ module "lps_api_datastream" {
           columns = ["fnr", "arbeidsgiver_sykmelding", "sykmeldt_navn"]
         },
         {
-          table   = "soknad",
-          columns = ["fnr", "soknad"]
-        },
-        {
           table   = "forespoersel",
           columns = ["fnr", "dokument"]
         },
